@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arpit Mishra | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --bg:#090c10;
+  --bg2:#0d1117;
+  --bg3:#161b22;
+  --border:#21262d;
+  --green:#3fb950;
+  --greenGlow:rgba(63,185,80,0.15);
+  --text:#e6edf3;
+  --textDim:#8b949e;
+
+  --mono:'JetBrains Mono', monospace;
+  --sans:'Space Grotesk', sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  overflow-x:hidden;
+}
+
+/* GRID BG */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+  linear-gradient(rgba(63,185,80,0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(63,185,80,0.03) 1px, transparent 1px);
+  background-size:40px 40px;
+  z-index:-1;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(9,12,16,0.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-container{
+  max-width:1100px;
+  margin:auto;
+  padding:1rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-family:var(--mono);
+  color:var(--green);
+  text-decoration:none;
+  font-size:14px;
+}
+
+.nav-links{
+  display:flex;
+  gap:2rem;
+  list-style:none;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--textDim);
+  font-family:var(--mono);
+  font-size:13px;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:var(--green);
+}
+
+/* SECTION */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:6rem 2rem;
+}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.hero-top{
+  color:var(--green);
+  font-family:var(--mono);
+  margin-bottom:1rem;
+  letter-spacing:2px;
+}
+
+.hero-name{
+  font-size:clamp(3rem, 8vw, 5.5rem);
+  font-weight:700;
+  line-height:1.1;
+}
+
+.cursor{
+  display:inline-block;
+  width:4px;
+  height:0.9em;
+  background:var(--green);
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  50%{
+    opacity:0;
+  }
+}
+
+.hero-role{
+  margin-top:1rem;
+  color:var(--green);
+  font-family:var(--mono);
+  font-size:1.2rem;
+}
+
+.hero-desc{
+  margin-top:1.5rem;
+  max-width:700px;
+  color:var(--textDim);
+  line-height:1.8;
+  font-size:1.05rem;
+}
+
+.hero-btns{
+  margin-top:2rem;
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:0.8rem 1.5rem;
+  border-radius:6px;
+  text-decoration:none;
+  font-family:var(--mono);
+  font-size:13px;
+  transition:0.3s;
+}
+
+.btn-primary{
+  background:var(--green);
+  color:#000;
+  font-weight:700;
+}
+
+.btn-primary:hover{
+  background:transparent;
+  border:1px solid var(--green);
+  color:var(--green);
+  box-shadow:0 0 20px var(--greenGlow);
+}
+
+.btn-outline{
+  border:1px solid var(--border);
+  color:var(--textDim);
+}
+
+.btn-outline:hover{
+  border-color:var(--green);
+  color:var(--green);
+}
+
+/* SECTION TITLES */
+.section-tag{
+  color:var(--green);
+  font-family:var(--mono);
+  margin-bottom:0.7rem;
+  letter-spacing:2px;
+  font-size:13px;
+}
+
+.section-title{
+  font-size:2rem;
+  margin-bottom:3rem;
+}
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+}
+
+.about-text p{
+  color:var(--textDim);
+  line-height:1.9;
+  margin-bottom:1rem;
+}
+
+.terminal{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.terminal-top{
+  background:var(--bg3);
+  padding:0.8rem 1rem;
+  border-bottom:1px solid var(--border);
+}
+
+.terminal-body{
+  padding:1.5rem;
+  font-family:var(--mono);
+  font-size:14px;
+  line-height:2;
+}
+
+.green{
+  color:var(--green);
+}
+
+.blue{
+  color:#79c0ff;
+}
+
+.yellow{
+  color:#f8b64c;
+}
+
+.purple{
+  color:#d2a8ff;
+}
+
+.gray{
+  color:var(--textDim);
+}
+
+/* PROJECTS */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;
+}
+
+.project-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  padding:1.5rem;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.project-card:hover{
+  border-color:var(--green);
+  transform:translateY(-5px);
+}
+
+.project-card h3{
+  margin:1rem 0;
+}
+
+.project-card p{
+  color:var(--textDim);
+  line-height:1.7;
+  font-size:14px;
+}
+
+.tags{
+  display:flex;
+  gap:0.5rem;
+  flex-wrap:wrap;
+  margin-top:1rem;
+}
+
+.tag{
+  padding:4px 10px;
+  border-radius:4px;
+  background:var(--greenGlow);
+  color:var(--green);
+  font-family:var(--mono);
+  font-size:11px;
+}
+
+/* SKILLS */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1rem;
+}
+
+.skill-box{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  padding:1.5rem;
+  border-radius:10px;
+}
+
+.skill-box h3{
+  margin-bottom:1rem;
+  color:var(--green);
+  font-family:var(--mono);
+  font-size:14px;
+}
+
+.skill-item{
+  margin-bottom:1rem;
+}
+
+.skill-top{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:0.4rem;
+  font-family:var(--mono);
+  font-size:13px;
+}
+
+.skill-bar{
+  width:100%;
+  height:5px;
+  background:var(--bg3);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.skill-fill{
+  height:100%;
+  background:var(--green);
+}
+
+/* CONTACT */
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.contact-links a{
+  text-decoration:none;
+  color:var(--textDim);
+  transition:0.3s;
+}
+
+.contact-links a:hover{
+  color:var(--green);
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:2rem;
+  text-align:center;
+  color:var(--textDim);
+  font-family:var(--mono);
+  font-size:13px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <a href="#" class="logo">arpit@portfolio:~$</a>
+
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+
+  <div class="hero-top">
+    AVAILABLE FOR OPPORTUNITIES
+  </div>
+
+  <h1 class="hero-name">
+    <span id="typing"></span><span class="cursor"></span>
+  </h1>
+
+  <div class="hero-role">
+    // Full-Stack Developer & College Student
+  </div>
+
+  <p class="hero-desc">
+    I’m a passionate full-stack developer and computer science student who enjoys building modern web applications, solving DSA problems in Java, and learning scalable backend systems. I love turning ideas into real-world projects using clean and efficient code.
+  </p>
+
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-primary">View Projects →</a>
+    <a href="#contact" class="btn btn-outline">Contact Me</a>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+  <div class="section-tag">01 — ABOUT ME</div>
+  <h2 class="section-title">Who I Am</h2>
+
+  <div class="about-grid">
+
+    <div class="about-text">
+
+      <p>
+        Hey! I'm Arpit, a full-stack developer and college student passionate about building modern, scalable, and user-friendly applications.
+      </p>
+
+      <p>
+        I enjoy working across both frontend and backend technologies — from crafting responsive interfaces to developing APIs and databases.
+      </p>
+
+      <p>
+        I’m also deeply interested in DSA using Java and currently learning Kotlin to expand my Android and backend development skills.
+      </p>
+
+    </div>
+
+    <div class="terminal">
+
+      <div class="terminal-top">
+        about.json
+      </div>
+
+      <div class="terminal-body">
+
+        <div>{</div>
+
+        <div>
+          &nbsp;&nbsp;<span class="blue">"name"</span>:
+          <span class="green">"Arpit Mishra"</span>,
+        </div>
+
+        <div>
+          &nbsp;&nbsp;<span class="blue">"role"</span>:
+          <span class="green">"Full-Stack Developer"</span>,
+        </div>
+
+        <div>
+          &nbsp;&nbsp;<span class="blue">"college"</span>:
+          <span class="green">"IILM University"</span>,
+        </div>
+
+        <div>
+          &nbsp;&nbsp;<span class="blue">"skills"</span>: [
+        </div>
+
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">"Java"</span>,
+        </div>
+
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">"JavaScript"</span>,
+        </div>
+
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">"React"</span>,
+        </div>
+
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">"Node.js"</span>,
+        </div>
+
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">"Kotlin"</span>
+        </div>
+
+        <div>
+          &nbsp;&nbsp;]
+        </div>
+
+        <div>}</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+  <div class="section-tag">02 — PROJECTS</div>
+  <h2 class="section-title">Things I've Built</h2>
+
+  <div class="projects">
+
+    <div class="project-card">
+      <h3>DSA Visualizer</h3>
+
+      <p>
+        Interactive visualizer for sorting and searching algorithms with animations and performance tracking.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Java</span>
+        <span class="tag">DSA</span>
+        <span class="tag">Frontend</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+
+      <p>
+        Personal responsive portfolio website with cyberpunk-inspired UI and smooth animations.
+      </p>
+
+      <div class="tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>Task Manager API</h3>
+
+      <p>
+        Backend REST API for task management with authentication and CRUD functionality.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">Express</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+
+  <div class="section-tag">03 — SKILLS</div>
+  <h2 class="section-title">Tech Stack</h2>
+
+  <div class="skills-grid">
+
+    <div class="skill-box">
+
+      <h3>// LANGUAGES</h3>
+
+      <div class="skill-item">
+        <div class="skill-top">
+          <span>Java</span>
+          <span>90%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="width:90%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-top">
+          <span>JavaScript</span>
+          <span>85%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="width:85%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-top">
+          <span>Kotlin</span>
+          <span>65%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" style="width:65%;"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="skill-box">
+
+      <h3>// FRONTEND</h3>
+
+      <div class="skill-item">
+        <div class="skill-top">
+          <span>React</span>
+          <span>80%</span>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-fill" style="width:80%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-top">
+          <span>HTML/CSS</span>
+          <span>90%</span>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-fill" style="width:90%;"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="skill-box">
+
+      <h3>// BACKEND</h3>
+
+      <div class="skill-item">
+        <div class="skill-top">
+          <span>Node.js</span>
+          <span>80%</span>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-fill" style="width:80%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-top">
+          <span>MongoDB</span>
+          <span>75%</span>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-fill" style="width:75%;"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+  <div class="section-tag">04 — CONTACT</div>
+  <h2 class="section-title">Get In Touch</h2>
+
+  <div class="contact-links">
+
+    <a href="mailto:arpit.mishra.cs27@iilm.edu">
+      ✉ arpit.mishra.cs27@iilm.edu
+    </a>
+
+    <a href="https://linkedin.com/in/arpitmishra" target="_blank">
+      ◈ linkedin.com/in/arpitmishra
+    </a>
+
+    <a href="#">
+      💻 github.com/arpitmishra
+    </a>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  designed & built by <span class="green">Arpit Mishra</span> · 2026
+</footer>
+
+<script>
+
+const text = "Arpit Mishra";
+const typing = document.getElementById("typing");
+
+let i = 0;
+
+function typeEffect(){
+
+  if(i < text.length){
+
+    typing.innerHTML += text.charAt(i);
+    i++;
+
+    setTimeout(typeEffect, 100);
+  }
+
+}
+
+typeEffect();
+
+</script>
+
+</body>
+</html>
